@@ -1,7 +1,7 @@
 from supabase import create_client, Client
 from fastapi import HTTPException, APIRouter
 from dotenv import load_dotenv
-from supabase_client import SupabaseClient
+from supabaseClient import SupabaseClient
 import os
 
 
