@@ -46,5 +46,24 @@ class SupabaseClient:
                 else: 
                     query = query.eq(key, value)
 
+        response = query.execute()
+        return response.data
     
+    def update(self, table: str, filters: dict, updates: dict):
+        #updates data in a table 
+        
+        query = self.__supabase.table(table).update(updates)
 
+        for key, value in filters.items():
+            query = query.eq(key, value)
+        response = query.execute()
+        return response.data
+    
+    def delete(self, table:str,filters:dict):
+        #delete from table
+        query = self.__supabase.table(table).delete()
+
+        for key, value in filters.items():
+            query = query.eq(key, value)
+        response = query.execute()
+        return response.data
