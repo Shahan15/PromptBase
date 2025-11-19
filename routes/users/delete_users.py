@@ -7,7 +7,7 @@ client = SupabaseClient()
 router = APIRouter()
 
 #DELETE A PROMPT
-@router.delete('/prompts/{prompt_id}')
+@router.delete('/prompts/{prompt_id}',status_code=status.HTTP_204_NO_CONTENT)
 def delete_prompt(prompt_id : UUID):
     #Deletes prompt via its prompt id
     try: 

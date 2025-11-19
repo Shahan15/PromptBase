@@ -6,16 +6,16 @@ client = SupabaseClient()
 
 router = APIRouter()
 
-class UserCreate(BaseModel):
+class UserCreateSchema(BaseModel):
     first_name : str
     last_name : str
     email : str
     password : str
 
 #Sending data to database to update/create
-@router.post('/')
-def create_user(new_user : UserCreate):
-    #Creating a new user
+@router.post('/',status_code=status.HTTP_201_CREATED)
+def create_user(new_user : UserCreateSchema):
+    #CREATING A NEW USER 
     try: 
         user_data = new_user.model_dump()
         created_user = client.insert(table='users',data=user_data)
