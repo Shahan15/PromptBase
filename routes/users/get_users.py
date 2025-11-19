@@ -13,7 +13,6 @@ router = APIRouter()
 @router.get("/users")
 def get_users():
     try:
-
         data = client.fetch('users')
         return {"success": True, "data": data, "count": len(data)}
     except Exception as e:

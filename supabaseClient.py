@@ -59,11 +59,17 @@ class SupabaseClient:
         response = query.execute()
         return response.data
     
-    def delete(self, table:str,filters:dict):
+    def delete(self, table:str,pk_id : int = None, filters : dict = None):
         #delete from table
         query = self.__supabase.table(table).delete()
 
-        for key, value in filters.items():
-            query = query.eq(key, value)
+        if pk_id is not None:
+            query = query.eq('id',pk_id)
+        elif filters:
+            for key, value in filters.items():
+                query = query.eq(key, value)
+        else:
+            raise ValueError("Must provide primary key ID or filters for deletion")
+
         response = query.execute()
         return response.data
