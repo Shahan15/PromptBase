@@ -11,6 +11,7 @@ router = APIRouter()
 def get_users():
     try:
         data = client.fetch('users')
+        print(f"THE DATA IS: {data}")
         return {"success": True, "data": data, "count": len(data)}
     except Exception as e:
         raise HTTPException(
