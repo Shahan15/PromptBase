@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from datetime import datetime
-from routes import (users_router)
-
-
+from routes import (users_router, prompts_router)
+from dotenv import load_dotenv
+import os
 app = FastAPI()
+
+print(os.getenv("SUPABASE_URL"))
+print(os.getenv("SUPABASE_KEY"))
 
 
 @app.get("/")
@@ -31,3 +34,4 @@ users = [
 ]
 
 app.include_router(users_router, tags=["Users"])
+app.include_router(prompts_router, tags=["Prompts"])
