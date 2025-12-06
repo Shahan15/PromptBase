@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from typing import Optional
+
 
 # {
 #       "id": "c58ef35d-0e3d-4173-92b3-ee19bd6fbf0b",
@@ -27,3 +29,7 @@ class ResponsePrompt(BaseModel):
     is_private: bool
     tags: str
     user_id: str
+
+class promptsUpdateSchema(BaseModel):
+    is_private: Optional[bool] = None
+    tags: Optional[str] = None
