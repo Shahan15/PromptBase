@@ -14,7 +14,6 @@ def delete_prompt(prompt_id : UUID):
         result = client.delete(
             table = 'prompts',
             pk_id = prompt_id,
-
         )
     
         if not result or len(result) == 0: 

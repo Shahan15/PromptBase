@@ -38,7 +38,7 @@ class SupabaseClient:
         query = self.__supabase.table(table).select(columns)
 
         #checks if filter is true. Iterate through it and checks if there is an IN or Equality filter
-        if filter:
+        if filters:
             for key, value in filters.items():
                 if "__in" in key:
                     field = key.replace("__in","")

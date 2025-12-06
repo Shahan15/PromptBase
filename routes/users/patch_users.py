@@ -8,7 +8,7 @@ client = SupabaseClient()
 
 router = APIRouter()
 
-class UserUpdateScheme(BaseModel):
+class UserUpdateSchema(BaseModel):
     first_name : Optional[str] = None
     last_name : Optional[str] = None
     email : Optional[str] = None
@@ -21,7 +21,7 @@ class promptsUpdateSchema(BaseModel):
 
 
 @router.patch('/users/{user_id}',status_code=status.HTTP_200_OK)
-def update_users_profile(user_id : UUID,userUpdate : UserUpdateScheme):
+def update_users_profile(user_id : UUID, userUpdate : UserUpdateSchema):
     #PARTIAL UPDATE
     try:
         #Ensure dict only contains fields the user actually sends. ignores None values
@@ -83,7 +83,7 @@ def update_prompt(prompt_id : UUID, promptUpdate : promptsUpdateSchema):
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f'prompt with id : {prompt_id} could not be found'
         )
-        
+
     except HTTPException:
         raise
     except Exception as e:
