@@ -8,17 +8,12 @@ class RequestFavourites(BaseModel):
     created_at: str
     prompt_id: str
 
-    class Config:
-        orm_mode = True
-
 
 class ResponseFavourites(BaseModel):
     id: UUID
     created_at: str
     prompt_id: str
 
-    class Config:
-        orm_mode = True
 
 
 class FavouritesUpdateSchema(BaseModel):
@@ -26,5 +21,4 @@ class FavouritesUpdateSchema(BaseModel):
     created_at: Optional[str] = None
     prompt_id: Optional[str] = None
 
-    class Config:
-        orm_mode = True
+  

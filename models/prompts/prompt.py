@@ -10,9 +10,6 @@ class RequestPrompt(BaseModel):
     tags: str
     user_id: str
 
-    class Config:
-        orm_mode = True
-
 
 class ResponsePrompt(BaseModel):
     id: UUID
@@ -23,13 +20,9 @@ class ResponsePrompt(BaseModel):
     tags: str
     user_id: str
 
-    class Config:
-        orm_mode = True
 
 
 class PromptUpdateSchema(BaseModel):
     is_private: Optional[bool] = None
     tags: Optional[str] = None
 
-    class Config:
-        orm_mode = True
