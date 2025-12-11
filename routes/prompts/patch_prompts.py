@@ -1,6 +1,6 @@
 from supabaseClient import SupabaseClient
 from fastapi import HTTPException, APIRouter,status
-from models.prompts import promptsUpdateSchema
+from models.prompts import PromptUpdateSchema
 from uuid import UUID  
 
 client = SupabaseClient()
@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.patch('/prompts/{prompt_id}', status_code=status.HTTP_200_OK)
-def update_prompt(prompt_id: UUID, promptUpdate: promptsUpdateSchema):
+def update_prompt(prompt_id: UUID, promptUpdate: PromptUpdateSchema):
     try:
         update_data = promptUpdate.model_dump(exclude_unset=True)
 

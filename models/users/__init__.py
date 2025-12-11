@@ -1,7 +1,7 @@
-from .users import ResponseUser, RequestUser,userUpdateScheme
+from .users import ResponseUser, RequestUser,UserUpdateSchema
 
 __all__ = [
     "ResponseUser",
     "RequestUser",
-    "userUpdateScheme"
+    "UserUpdateSchema"
 ]

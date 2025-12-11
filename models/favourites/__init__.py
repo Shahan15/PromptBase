@@ -1,8 +1,8 @@
-from .favourites import RequestFavourites,ResponseFavourites,favouritesUpdateSchema
+from .favourites import RequestFavourites,ResponseFavourites,FavouritesUpdateSchema
 
 __all__ = [
     "RequestFavourites",
     "ResponseFavourites",
-    "favouritesUpdateSchema"
+    "FavouritesUpdateSchema"
 ]
 

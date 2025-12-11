@@ -1,7 +1,7 @@
-from .prompt import ResponsePrompt, RequestPrompt,promptsUpdateSchema
+from .prompt import ResponsePrompt, RequestPrompt,PromptUpdateSchema
 
 __all__ = [
     "ResponsePrompt",
     "RequestPrompt",
-    "promptsUpdateSchema"
+    "PromptUpdateSchema"
 ]

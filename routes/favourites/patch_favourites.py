@@ -1,14 +1,14 @@
 from supabaseClient import SupabaseClient
 from fastapi import HTTPException, APIRouter, status
 from uuid import UUID
-from models.favourites import favouritesUpdateSchema
+from models.favourites import FavouritesUpdateSchema
 
 client = SupabaseClient()
 
 router = APIRouter()
 
 @router.patch('/favourites/{favourite_id}', status_code=status.HTTP_200_OK)
-def update_favourite(favourite_id: UUID, favouriteUpdate: favouritesUpdateSchema):
+def update_favourite(favourite_id: UUID, favouriteUpdate: FavouritesUpdateSchema):
     try:
         update_data = favouriteUpdate.model_dump(exclude_unset=True)
 

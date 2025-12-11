@@ -3,7 +3,7 @@ from fastapi import HTTPException, APIRouter, status
 from pydantic import BaseModel
 from typing import Optional
 from uuid import UUID
-from models.users import userUpdateScheme
+from models.users import UserUpdateSchema
 
 client = SupabaseClient()
 
@@ -11,7 +11,7 @@ router = APIRouter()
 
 
 @router.patch('/users/{user_id}', status_code=status.HTTP_200_OK)
-def update_users_profile(user_id: UUID, userUpdate: userUpdateScheme):
+def update_users_profile(user_id: UUID, userUpdate: UserUpdateSchema):
     # PARTIAL UPDATE
     try:
         # Ensure dict only contains fields the user actually sends. ignores None values
