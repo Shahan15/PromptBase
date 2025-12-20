@@ -5,7 +5,6 @@ from uuid import UUID
 
 class RequestPrompt(BaseModel):
     original_prompt: str
-    optimised_prompt: str
     is_private: bool
     tags: str
     user_id: str
