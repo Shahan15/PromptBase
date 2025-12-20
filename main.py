@@ -3,6 +3,8 @@ from datetime import datetime
 from routes import (users_router, prompts_router)
 from dotenv import load_dotenv
 import os
+
+
 app = FastAPI()
 
 print(os.getenv("SUPABASE_URL"))
