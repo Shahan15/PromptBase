@@ -1,12 +1,12 @@
 from supabaseClient import SupabaseClient
 from fastapi import HTTPException, APIRouter,status
-from models.favourites import RequestFavourites
+from models.favourites import ResponseFavourites
 from typing import List
 
 router = APIRouter()
 client = SupabaseClient()
 
-router.get('/favourites',response_model=List[RequestFavourites])
+@router.get('/favourites',response_model=List[ResponseFavourites])
 def get_favourites():
     try:
         data = client.fetch('favourites')

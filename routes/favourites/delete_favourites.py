@@ -6,7 +6,7 @@ client = SupabaseClient()
 router = APIRouter()
 
 @router.delete('/favourites/{favourite_id}')
-def delete_favourite(favourite_id : UUID):
+def delete_favourites(favourite_id : UUID):
     try:
         result = client.delete(
             table = 'favourites',

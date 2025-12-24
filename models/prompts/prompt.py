@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from uuid import UUID
+from datetime import datetime
 
 
 class RequestPrompt(BaseModel):
@@ -12,7 +13,7 @@ class RequestPrompt(BaseModel):
 
 class ResponsePrompt(BaseModel):
     id: UUID
-    created_at: str
+    created_at: datetime
     original_prompt: str
     optimised_prompt: str
     is_private: bool

@@ -1,16 +1,16 @@
 from supabaseClient import SupabaseClient
 from fastapi import HTTPException, APIRouter, status
 from uuid import UUID
-from models.favourites import FavouritesUpdateSchema
+from models.favourites import FavouritesUpdateSchema,ResponseFavourites
 
 client = SupabaseClient()
 
 router = APIRouter()
 
-@router.patch('/favourites/{favourite_id}', status_code=status.HTTP_200_OK)
-def update_favourite(favourite_id: UUID, favouriteUpdate: FavouritesUpdateSchema):
+@router.patch('/favourites/{favourite_id}', response_model=ResponseFavourites, status_code=status.HTTP_200_OK)
+def update_favourite(favourite_id: UUID, favourite_Update: FavouritesUpdateSchema):
     try:
-        update_data = favouriteUpdate.model_dump(exclude_unset=True)
+        update_data = favourite_Update.model_dump(exclude_unset=True)
 
         if not update_data:
             raise HTTPException(
@@ -32,7 +32,7 @@ def update_favourite(favourite_id: UUID, favouriteUpdate: FavouritesUpdateSchema
                 detail=f'Favourite with id {favourite_id} could not be found'
             )
 
-        return updates
+        return updates[0]
 
     except HTTPException:
         raise
