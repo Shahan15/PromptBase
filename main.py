@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from datetime import datetime
-from routes import (users_router, prompts_router)
+from routes import (users_router, prompts_router,favourites_router)
 from dotenv import load_dotenv
 import os
 
@@ -37,3 +37,4 @@ users = [
 
 app.include_router(users_router, tags=["Users"])
 app.include_router(prompts_router, tags=["Prompts"])
+app.include_router(favourites_router, tags=["Favourites"])
